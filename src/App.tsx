@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import {
+  createTheme,
+  TextField,
+  ThemeProvider,
+  Typography,
+} from "@mui/material";
+import CssBaseline from "@mui/material/CssBaseline";
+
+const darkTheme = createTheme({
+  colorSchemes: {
+    dark: true, // Change to "light" for default mode
+  },
+});
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Typography variant="h1">H1 Heading</Typography>
+      <Typography variant="h2">H2 Heading</Typography>
+      <Typography variant="h3">H3 Heading</Typography>
+      <Typography variant="h4">H4 Heading</Typography>
+      <Typography variant="h5">H5 Heading</Typography>
+      <Typography variant="h6">H6 Heading</Typography>
+
+      <Typography variant="subtitle1">Subtitle 1</Typography>
+      <Typography variant="subtitle2">Subtitle 2</Typography>
+
+      <Typography variant="body1">Body 1 - Default text</Typography>
+      <Typography variant="body2">Body 2 - Smaller text</Typography>
+
+      <Typography variant="caption">Caption Text</Typography>
+      <Typography variant="button">Button Text</Typography>
+      <Typography variant="overline">Overline Text</Typography>
+      <br></br>
+      <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+    </ThemeProvider>
+  );
 }
 
-export default App
+export default App;
