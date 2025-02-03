@@ -2,7 +2,6 @@ import * as React from "react";
 import "./App.css";
 import { createTheme, ThemeProvider } from "@mui/material";
 import CssBaseline from "@mui/material/CssBaseline";
-import Logincard from "./components/Logincard";
 import { RouterProvider } from "react-router-dom";
 import router from "./routes";
 import { UserAuthProvider } from "./context/userAuthContext";

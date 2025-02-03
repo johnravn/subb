@@ -4,7 +4,14 @@ export interface UserLogIn {
 }
 
 export interface UserSignIn {
-  fullName: string;
+  firstName: string;
+  lastName: string;
+  phone: string;
   email: string;
   password: string;
+  born: string;
+  address: string;
+  zip: string;
+  area: string;
+  profilePicture: string | undefined;
 }

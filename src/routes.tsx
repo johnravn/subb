@@ -5,6 +5,7 @@ import Signup from "./pages/signup";
 import Home from "./pages/home";
 import Profile from "./pages/profile";
 import ProtectedRoutes from "./components/ProtectedRoutes";
+import Equipment from "./pages/equipment";
 
 export const router = createBrowserRouter([
   {
@@ -18,6 +19,11 @@ export const router = createBrowserRouter([
       {
         path: "/profile",
         element: <Profile />,
+        errorElement: <Error />,
+      },
+      {
+        path: "/equipment",
+        element: <Equipment />,
         errorElement: <Error />,
       },
     ],

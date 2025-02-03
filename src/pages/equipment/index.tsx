@@ -1,10 +1,9 @@
 import { Alert, Snackbar, SnackbarCloseReason } from "@mui/material";
 import * as React from "react";
-import Navbar from "../../components/Navbar";
 
-interface IHomeProps {}
+interface IEquipmentProps {}
 
-const Home: React.FunctionComponent<IHomeProps> = (props) => {
+const Equipment: React.FunctionComponent<IEquipmentProps> = (props) => {
   const [openSuccessSnack, setOpenSuccessSnack] = React.useState(true);
   const handleCloseSuccessSnack = (
     event: React.SyntheticEvent | Event,
@@ -19,7 +18,6 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
 
   return (
     <>
-      <Navbar />
       <Snackbar
         open={openSuccessSnack}
         autoHideDuration={3000}
@@ -39,4 +37,4 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
   );
 };
 
-export default Home;
+export default Equipment;
