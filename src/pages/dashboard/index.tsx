@@ -2,14 +2,14 @@ import { Alert, Snackbar, SnackbarCloseReason } from "@mui/material";
 import * as React from "react";
 import Navbar from "../../components/Navbar";
 
-interface IEquipmentProps {}
+interface IDashboardProps {}
 
-const Equipment: React.FunctionComponent<IEquipmentProps> = (props) => {
+const Dashboard: React.FunctionComponent<IDashboardProps> = (props) => {
   return (
     <>
-      <div>Equipment</div>
+      <div>Dashboard</div>
     </>
   );
 };
 
-export default Equipment;
+export default Dashboard;

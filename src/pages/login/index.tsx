@@ -66,7 +66,7 @@ const Login: React.FunctionComponent<ILoginProps> = () => {
     try {
       console.log("The user info is: ", userLogInInfo);
       await logIn(userLogInInfo.email, userLogInInfo.password);
-      navigate("/");
+      navigate("/home/dashboard");
     } catch (error) {
       if (error instanceof FirebaseError) {
         if (

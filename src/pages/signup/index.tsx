@@ -25,7 +25,7 @@ import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider/L
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import Grid from "@mui/material/Grid2";
 import dayjs, { Dayjs } from "dayjs";
-import { addDoc, collection } from "firebase/firestore";
+import { addDoc, collection, doc, setDoc } from "firebase/firestore";
 import firestore from "../../firebase";
 import { FirebaseError } from "firebase/app";
 
@@ -50,7 +50,6 @@ const Signup: React.FunctionComponent<ISignupProps> = () => {
   const theme = useTheme();
 
   const [userInfo, setuserInfo] = useState<UserSignIn>(initialValue);
-  //   const { googleSignIn, signUp } = useUserAuth();
   const { signUp } = useUserAuth();
   const navigate = useNavigate();
 
@@ -106,8 +105,9 @@ const Signup: React.FunctionComponent<ISignupProps> = () => {
     try {
       setOpenLoadingSnack(true);
       //   console.log("The user info is: ", userInfo);
-      await signUp(userInfo.email, userInfo.password);
-      await addDoc(usersCollectionRef, {
+      const userCredential = await signUp(userInfo.email, userInfo.password);
+      const userId = userCredential.user.uid;
+      await setDoc(doc(firestore, "users", userId), {
         firstName: userInfo.firstName,
         lastName: userInfo.lastName,
         phone: userInfo.phone,

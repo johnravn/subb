@@ -6,15 +6,33 @@ import Home from "./pages/home";
 import Profile from "./pages/profile";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import Equipment from "./pages/equipment";
+import Dashboard from "./pages/dashboard";
 
 export const router = createBrowserRouter([
   {
     element: <ProtectedRoutes />,
     children: [
       {
-        path: "/",
+        path: "/home",
         element: <Home />,
         errorElement: <Error />,
+        children: [
+          {
+            path: "dashboard",
+            element: <Dashboard />,
+            errorElement: <Error />,
+          },
+          {
+            path: "profile",
+            element: <Profile />,
+            errorElement: <Error />,
+          },
+          {
+            path: "equipment",
+            element: <Equipment />,
+            errorElement: <Error />,
+          },
+        ],
       },
       {
         path: "/profile",

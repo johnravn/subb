@@ -15,3 +15,15 @@ export interface UserSignIn {
   area: string;
   profilePicture: string | undefined;
 }
+
+export interface UserData {
+  firstName?: string;
+  lastName?: string;
+  phone?: string;
+  email?: string;
+  born?: string;
+  address?: string;
+  zip?: string;
+  area?: string;
+  profilePicture?: string | undefined;
+}
