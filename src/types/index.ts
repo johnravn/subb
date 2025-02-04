@@ -13,7 +13,6 @@ export interface UserSignIn {
   address: string;
   zip: string;
   area: string;
-  profilePicture: string | undefined;
 }
 
 export interface UserData {
@@ -25,5 +24,4 @@ export interface UserData {
   address?: string;
   zip?: string;
   area?: string;
-  profilePicture?: string | undefined;
 }

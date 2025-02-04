@@ -7,6 +7,7 @@ import Profile from "./pages/profile";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 import Equipment from "./pages/equipment";
 import Dashboard from "./pages/dashboard";
+import Redirect from "./pages/redirect";
 
 export const router = createBrowserRouter([
   {
@@ -54,6 +55,11 @@ export const router = createBrowserRouter([
   {
     path: "/signup",
     element: <Signup />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/",
+    element: <Redirect />,
     errorElement: <Error />,
   },
 ]);

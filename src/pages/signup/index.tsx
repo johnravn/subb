@@ -41,7 +41,6 @@ const initialValue: UserSignIn = {
   address: "",
   zip: "",
   area: "",
-  profilePicture: "",
 };
 
 const Signup: React.FunctionComponent<ISignupProps> = () => {
@@ -116,7 +115,6 @@ const Signup: React.FunctionComponent<ISignupProps> = () => {
         address: userInfo.address,
         zip: userInfo.zip,
         area: userInfo.area,
-        profilePicture: userInfo.profilePicture,
       });
       setOpenLoadingSnack(false);
       setOpenSuccessSnack(true);

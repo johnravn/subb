@@ -14,6 +14,7 @@ import { documentId } from "firebase/firestore/lite";
 import { collection, doc, DocumentReference, getDoc } from "firebase/firestore";
 import { Outlet } from "react-router-dom";
 import { UserData } from "../../types";
+import { getDownloadURL, getStorage, ref } from "firebase/storage";
 interface IHomeProps {}
 
 const Home: React.FunctionComponent<IHomeProps> = (props) => {
@@ -41,6 +42,23 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
     fetchUserData();
   }, [user]);
 
+  const [imageUrl, setImageUrl] = React.useState<string | null>(null);
+
+  React.useEffect(() => {
+    const storage = getStorage();
+    const path = "/profilePictures/" + user?.uid;
+    const imageRef = ref(storage, path);
+
+    getDownloadURL(imageRef)
+      .then((url) => {
+        setImageUrl(url);
+      })
+      .catch((error) => {
+        console.error("Error fetching image url:", error);
+        setImageUrl("/iconOnWhite.svg");
+      });
+  });
+
   const [openSuccessSnack, setOpenSuccessSnack] = React.useState(true);
   const handleCloseSuccessSnack = (
     event: React.SyntheticEvent | Event,
@@ -56,20 +74,18 @@ const Home: React.FunctionComponent<IHomeProps> = (props) => {
   return (
     <>
       <Navbar
-        firstname={userData?.firstName || ""}
-        lastname={userData?.lastName || ""}
-        img={userData?.profilePicture || ""}
+        firstname={userData?.firstName}
+        lastname={userData?.lastName}
+        img={imageUrl}
       />
       <Container
         sx={{
-          backgroundColor: "#808080",
-          height: "1500px",
-          width: "500px",
+          // backgroundColor: "#808080",
+          // height: "1500px",
+          // width: "500px",
+          marginY: "65px",
         }}
       >
-        <Box>
-          <Typography>Halla</Typography>
-        </Box>
         <Outlet />
       </Container>
       <Snackbar
